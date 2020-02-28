@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CardLogic : MonoBehaviour
 {
-    TMP_Text tmp;
+    public TMP_Text tmp;
     public bool isMouseOver = false;
     private void OnMouseOver()
     {
