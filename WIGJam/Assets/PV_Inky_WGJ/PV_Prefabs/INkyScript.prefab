@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8745844311911209988}
-  - component: {fileID: 8745844311911209989}
+  - component: {fileID: 136790747}
   m_Layer: 0
   m_Name: INkyScript
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8745844311911209989
+--- !u!114 &136790747
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,12 +40,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8745844311911210010}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66e957d58a4584a8894329531ec0b096, type: 3}
+  m_Script: {fileID: 11500000, guid: 0399010393b22394ea52c490bc9df44c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inkJSONAsset: {fileID: 4900000, guid: 72f6747638e05484f964fc538a94564c, type: 3}
-  canvas: {fileID: 5624160672973143880, guid: 42c689bd20d7aa94c89ba5f8b8aa60e3, type: 3}
-  textPrefab: {fileID: 5041406882651403993, guid: 2635d228acf945542a6c4b77c93622ce,
+  canvas: {fileID: 0}
+  textPrefab: {fileID: 8503871631472772099, guid: c0a803cb4b57f864b92810010187a790,
     type: 3}
-  buttonPrefab: {fileID: 8492730378060622645, guid: 934699fa76f97064f9cbccbdacc67202,
+  buttonPrefab: {fileID: 3228833919531407496, guid: 4ed3c60022506a54e9a967d5258492db,
     type: 3}
+  P1: {fileID: 0}
+  P2: {fileID: 0}
