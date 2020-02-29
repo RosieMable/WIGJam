@@ -3,10 +3,21 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-public class CardLogic : MonoBehaviour
+using UnityEngine.EventSystems;
+
+public class CardLogic : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public TMP_Text tmp;
     public bool isMouseOver = false;
+    public Vector2 originalPosition;
+    public Canvas myCanvas;
+
+    private void Start()
+    {
+        originalPosition = transform.position;
+        //RectTransformUtility.ScreenPointToLocalPointInRectangle(myCanvas.transform as RectTransform, myCanvas.transform.position, myCanvas.worldCamera, out originalPosition);
+    }
+
     private void OnMouseOver()
     {
         isMouseOver = true;
@@ -23,5 +34,15 @@ public class CardLogic : MonoBehaviour
     public void InduceLeft()
     {
         tmp.text = "You have swiped left";
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        isMouseOver = true;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        isMouseOver = false;
     }
 }
