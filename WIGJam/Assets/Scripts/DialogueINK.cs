@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System;
 using Ink.Runtime;
+using System.Collections.Generic;
 
 // This is a super bare bones example of how to play and display a ink story in Unity.
 public class DialogueINK : MonoBehaviour
@@ -15,6 +16,9 @@ public class DialogueINK : MonoBehaviour
     [SerializeField]
     private GameObject canvas = null;
 
+    [SerializeField]
+    GameManager manager;
+
     // UI Prefabs
     [SerializeField]
     private GameObject textPrefab = null;
@@ -22,7 +26,13 @@ public class DialogueINK : MonoBehaviour
     private Button buttonPrefab = null;
 
     [SerializeField]
-    private Transform P1, P2;
+    private Transform P1, P2, CenterPoint;
+
+    [SerializeField]
+    Sprite Left, Right;
+
+    [SerializeField]
+    List<GameObject> ToRefresh;
 
     //   void Awake () {
     //	// Remove the default message
@@ -31,15 +41,22 @@ public class DialogueINK : MonoBehaviour
     //}
     public void StartStoryOnPress()
     {
-        RemoveChildren();
         StartStory();
     }
     // Creates a new Story object with the compiled story which we can then play!
     void StartStory()
     {
+        manager.ToChatService();
         story = new Story(inkJSONAsset.text);
         if (OnCreateStory != null) OnCreateStory(story);
         RefreshView();
+    }
+
+    public void BlockUser()
+    {
+        RemoveChildren();
+        manager.blockCount += 1;
+        manager.ToFindDate();
     }
 
     // This is the main function called every time the story changes. It does a few things:
@@ -73,12 +90,14 @@ public class DialogueINK : MonoBehaviour
                 {
                     if (i == 0)
                     {
+                        button.GetComponent<Image>().sprite = Left;
                         button.transform.position = P1.position;
                         button.transform.SetParent(P1);
                         P1.gameObject.SetActive(true);
                     }
                     else if (i == 1)
                     {
+                        button.GetComponent<Image>().sprite = Right;
                         button.transform.position = P2.position;
                         button.transform.SetParent(P2);
                         P2.gameObject.SetActive(true);
@@ -89,6 +108,7 @@ public class DialogueINK : MonoBehaviour
                 {
                     if (i == 0)
                     {
+                        button.GetComponent<Image>().sprite = Left;
                         button.transform.position = P1.position;
                         button.transform.SetParent(P1);
 
@@ -108,10 +128,14 @@ public class DialogueINK : MonoBehaviour
         {
             P1.gameObject.SetActive(false);
             P2.gameObject.SetActive(false);
-            Button choice = CreateChoiceView("End of story.\nRestart?");
-            choice.onClick.AddListener(delegate {
-                StartStory();
-            });
+
+            //once it is done, then play ending
+            manager.ToFindDate();
+
+            //Button choice = CreateChoiceView("End of story.\nRestart?");
+            //choice.onClick.AddListener(delegate {
+            //    StartStory();
+            //});
         }
     }
 
@@ -128,7 +152,10 @@ public class DialogueINK : MonoBehaviour
         GameObject newMessage = Instantiate(textPrefab);
         Text storyText = newMessage.GetComponentInChildren<Text>();
         storyText.text = text;
-        storyText.transform.SetParent(canvas.transform, false);
+        newMessage.transform.SetParent(canvas.transform, false);
+        newMessage.transform.position = CenterPoint.position;
+        newMessage.transform.SetParent(CenterPoint);
+        ToRefresh.Add(newMessage.gameObject);
     }
 
     // Creates a button showing the choice text
@@ -141,6 +168,7 @@ public class DialogueINK : MonoBehaviour
         // Gets the text from the button prefab
         Text choiceText = choice.GetComponentInChildren<Text>();
         choiceText.text = text;
+        ToRefresh.Add(choice.gameObject);
 
         return choice;
     }
@@ -148,11 +176,15 @@ public class DialogueINK : MonoBehaviour
     // Destroys all the children of this gameobject (all the UI)
     void RemoveChildren()
     {
-        int childCount = canvas.transform.childCount;
-        for (int i = childCount - 1; i >= 0; --i)
+        if(ToRefresh.Count > 0)
         {
-            GameObject.Destroy(canvas.transform.GetChild(i).gameObject);
+            int childCount = ToRefresh.Count;
+            for (int i = childCount - 1; i >= 0; --i)
+            {
+                GameObject.Destroy(ToRefresh[i]);
+            }
         }
+        
     }
 
   
