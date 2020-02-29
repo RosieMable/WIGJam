@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Cursory : MonoBehaviour {
 
-    private SpriteRenderer rend;
+    public SpriteRenderer rend;
 
   
 
