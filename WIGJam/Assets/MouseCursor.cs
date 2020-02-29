@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class mouseCursor : MonoBehaviour
+public class MouseCursor : MonoBehaviour
 {
 
     private SpriteRenderer rend;
