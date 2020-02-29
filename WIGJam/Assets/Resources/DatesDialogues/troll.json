@@ -1,1 +1,22 @@
-{}
+{
+
+	"1" : {
+		"text": "Hello, I don\'t think we\'ve met before",
+		"responseIds": ["P1", "P2"]
+	},
+
+	"2" : {
+		"text": "Can you push that box over to me?",
+		"responseIds": ["P3","P4"],
+	}
+
+	"3" : {
+		"text": "Please hurry.",
+		"responseIds": ["P3","P4"],
+	}
+
+	"4" : {
+		"text": "Thank you for your help.",
+		"responseIds": ["P3","P4"],
+	}
+}

@@ -11,9 +11,6 @@ public class DialogueManager : MonoBehaviour
     public TextAsset NpcDialogue;
     public TextAsset PlayerDialogue;
 
-    public TextAsset localEvents;
-    public TextAsset globalEvents;
-
     public bool clearEventsOnStart = true; // For testing
 
     public string startingIndex;
@@ -40,8 +37,8 @@ public class DialogueManager : MonoBehaviour
 
     private GameObject player;
     private GameObject clickToTalk;
+    [SerializeField]
     private UIDialogue uiDialogue;
-    private AudioSource audioSource;
 
     private Dictionary<string, AudioClip> dialogueDict;
     private Dictionary<string, AudioClip> playerDialogueDict;
@@ -51,7 +48,7 @@ public class DialogueManager : MonoBehaviour
         if (!isConversing)
         {
             isConversing = true;
-            StartCoroutine(say(startingIndex, false));
+            say(startingIndex, false);
         }
     }
 
@@ -60,7 +57,8 @@ public class DialogueManager : MonoBehaviour
         if (!isConversing)
         {
             isConversing = true;
-            StartCoroutine(say(startingId, false));
+            say(startingId, false);
+            print(dialogueCatalog);
         }
     }
 
@@ -75,26 +73,6 @@ public class DialogueManager : MonoBehaviour
         return isPlayer ? playerDialogueCatalog : dialogueCatalog;
     }
 
-    private Dictionary<string, AudioClip> getProperVoiceSet(bool isPlayer)
-    {
-        return isPlayer ? playerDialogueDict : dialogueDict;
-    }
-
-    public bool eventHasHappened(string eventName)
-    {
-        bool local = UnityEditor.ArrayUtility.Contains(localEvents.text.Split(','), eventName);
-
-        return local || UnityEditor.ArrayUtility.Contains(globalEvents.text.Split(','), eventName);
-    }
-
-    public void recordEvent(string eventName, bool isGlobal)
-    {
-        if (!eventHasHappened(eventName))
-        {
-            appendText(isGlobal ? globalEvents : localEvents, eventName);
-        }
-    }
-
     public void appendText(TextAsset file, string eventName)
     {
         File.AppendAllText(UnityEditor.AssetDatabase.GetAssetPath(file), "," + eventName);
@@ -102,10 +80,12 @@ public class DialogueManager : MonoBehaviour
         UnityEditor.AssetDatabase.Refresh();
     }
 
-    public IEnumerator say(string index, bool isPlayer)
+    public void say(string index, bool isPlayer)
     {
 
         JSONNode dialogueSet = getProperDialogueSet(isPlayer);
+
+        print(dialogueSet);
 
         JSONNode conditon = dialogueSet[index][CONDITION_KEY];
 
@@ -114,32 +94,14 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("A");
 
             Debug.Log(conditon);
-            Debug.Log(!eventHasHappened(conditon));
-
-            if (!eventHasHappened(conditon))
-            {
-                Debug.Log("B");
-
-                StartCoroutine(say(dialogueSet[index][ALTERNATE_KEY], isPlayer));
-                yield break;
-            }
-        }
-
-        JSONNode applyCondition = dialogueSet[index][APPLY_CONDITION_KEY];
-        if (applyCondition.Count > 0)
-        {
-            recordEvent(applyCondition[0], applyCondition[1].AsBool);
-            Debug.Log("Applying condition " + applyCondition[0]);
         }
 
         string subtitle = dialogueSet[index][TEXT_KEY];
-        AudioClip audio = getProperVoiceSet(isPlayer)[index];
+
 
         uiDialogue.displaySubtitle(subtitle);
-        audioSource.clip = audio;
-        audioSource.Play();
+        print(subtitle);
 
-        yield return new WaitForSeconds(audio.length + pauseBetweenLines);
 
         string nextLine = dialogueSet[index][NEXT_KEY];
 
@@ -148,7 +110,7 @@ public class DialogueManager : MonoBehaviour
         if (nextLine != null && nextLine.Length > 0)
         {
 
-            StartCoroutine(say(nextLine, isPlayer));
+           say(nextLine, isPlayer);
 
         }
         else if (ids.Length > 1)
@@ -162,7 +124,7 @@ public class DialogueManager : MonoBehaviour
         else if (ids.Length == 1)
         {
             // This could be player or an NPC so just flip isPlayer and speak
-            StartCoroutine(say(ids[0], !isPlayer));
+            say(ids[0], !isPlayer);
 
         }
         else if (ids.Length == 0)
@@ -212,39 +174,9 @@ public class DialogueManager : MonoBehaviour
         clickToTalk.SetActive(false);
     }
 
-    private Dictionary<string, AudioClip> createDictionaryDialogue(List<string> names, List<AudioClip> sounds)
-    {
-        if (names.Count != sounds.Count)
-        {
-            throw new System.ArgumentException("Must have equal number of names and audio files");
-        }
-        else
-        {
-            Dictionary<string, AudioClip> dict = new Dictionary<string, AudioClip>();
-
-            for (int i = 0; i < names.Count; i++)
-            {
-                dict.Add(names[i], sounds[i]);
-            }
-
-            return dict;
-        }
-    }
-
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         parseDialogue();
-
-        //if (clearEventsOnStart)
-        //{
-        //    File.WriteAllText(UnityEditor.AssetDatabase.GetAssetPath(localEvents), "");
-        //    UnityEditor.EditorUtility.SetDirty(localEvents);
-
-        //    File.WriteAllText(UnityEditor.AssetDatabase.GetAssetPath(globalEvents), "");
-        //    UnityEditor.EditorUtility.SetDirty(globalEvents);
-        //    UnityEditor.AssetDatabase.Refresh();
-        //}
     }
 
 }
