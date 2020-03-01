@@ -1,6 +1,0 @@
-FirstNames
-
-{~Josh|Viktor|Ivan|Abu|Neil|Ruby|Karen|Kevin|Greta|Frederica|Louis|Olga|Georgia|George|Emily|Sophia|Jack|Michael|Alexander|Daniel|Maria|William|Ava|Mia|Isabella|Nora|Virginia|Electra|Luna|Cleo|Nelson|Ajay|Herbert|Lucas|Albert|Monroe|Harry|Noah|Benjamin|Lee|Pedro|Miguel|Veronica|Laura|Leticia|Blanca|Adolfo|Aldo|Alessia|Anita|Rosso|Lorenzo|Miriam|Bruno|Romano|David|Katz|Hadad|Amar|Edri|Tamar|Yael|Shira|Talia|Raphael|Omer|Abraham|Antonella|Tom|Paul|Adam}
-
-LastNames
-{~Smith|Fields|Perkins|Jensen|Snyder|Mccoy|Olson|Meyer|Payne|Johnson|Williams|Brown|Miller|Martini|Coppola|Grasso|Ricci|Lopez|Hernandez|Garcia|Gonzales|Moretti|Vitale|Ramirez|Petrov|Weber|Herman|Friedrich|Fischer|Rossi|Varga|Nagy|Ivanova|Nguyen|Novak|Hansen|Ahmend|Ali|Mohamed|Mohapi|Molefe|Johannes|Manuel|Phiri|Yilmaz|Horvat|Gruber|BachMann|Gasperoni|Martin}
