@@ -37,6 +37,11 @@ public class DialogueINK : MonoBehaviour
     [SerializeField]
     List<GameObject> ToRefresh;
 
+    public CardLogic.Personality currentPersonality;
+
+    public CardLogic cardDate;
+
+
     //   void Awake () {
     //	// Remove the default message
     //	RemoveChildren();
@@ -59,6 +64,7 @@ public class DialogueINK : MonoBehaviour
     {
         RemoveChildren();
         manager.blockCount += 1;
+        cardDate.PopulateCard();
         manager.ToFindDate();
     }
 
@@ -79,6 +85,7 @@ public class DialogueINK : MonoBehaviour
             text = text.Trim();
             // Display the text on screen!
             CreateContentView(text);
+            CenterPoint.gameObject.SetActive(true);
         }
 
         // Display all the choices, if there are any!
@@ -91,7 +98,6 @@ public class DialogueINK : MonoBehaviour
 
                 if (story.currentChoices.Count > 1)
                 {
-                    CenterPoint.gameObject.SetActive(true);
 
                     if (i == 0)
                     {
@@ -144,7 +150,10 @@ public class DialogueINK : MonoBehaviour
             CenterPoint.gameObject.SetActive(false);
 
             //once it is done, then play ending
+            cardDate.PopulateCard();
             manager.ToFindDate();
+            AddToCount(currentPersonality);
+
 
             //Button choice = CreateChoiceView("End of story.\nRestart?");
             //choice.onClick.AddListener(delegate {
@@ -201,10 +210,38 @@ public class DialogueINK : MonoBehaviour
         
     }
 
-    public void SetStory(TextAsset inkStory)
+    public void SetStoryAndGetPersonality(TextAsset inkStory, CardLogic.Personality personality)
     {
         inkJSONAsset = null;
         inkJSONAsset = inkStory;
+
+        currentPersonality = personality;
     }
-  
+
+    void AddToCount(CardLogic.Personality personality)
+    {
+        switch (personality)
+        {
+            case CardLogic.Personality.niceGuy:
+                manager.blockCount += 1;
+                break;
+            case CardLogic.Personality.actualNiceGuy:
+                manager.niceGuy += 1;
+                break;
+            case CardLogic.Personality.oneLiners:
+                manager.blockCount += 1;
+                break;
+            case CardLogic.Personality.troll:
+                manager.blockCount += 1;
+                break;
+            case CardLogic.Personality.douche:
+                manager.blockCount += 1;
+                break;
+        }
+
+    }
+   public void JustNo()
+    {
+        manager.blockCount += 1;
+    }
 }

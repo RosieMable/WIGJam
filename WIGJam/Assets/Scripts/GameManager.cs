@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +9,13 @@ public class GameManager : MonoBehaviour
     GameObject WelcomeScreen, ChatScreen;
 
     public int blockCount;
+    public int niceGuy;
+    public int scum;
+
+
+    public Text niceGuyUI, blockCountUI;
+
+    private CardLogic card;
 
     AudioSource audio;
     private void Start()
@@ -15,6 +23,12 @@ public class GameManager : MonoBehaviour
         InitGame();
 
         audio = FindObjectOfType<AudioSource>();
+    }
+
+    private void Update()
+    {
+        niceGuyUI.text = "Dates: " + niceGuy.ToString();
+        blockCountUI.text = "Duds: " + blockCount.ToString();
     }
 
     public void ToChatService()
