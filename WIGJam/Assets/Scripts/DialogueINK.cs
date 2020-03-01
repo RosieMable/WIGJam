@@ -14,6 +14,9 @@ public class DialogueINK : MonoBehaviour
     public Story story;
 
     [SerializeField]
+    private TextAsset TrollEXC;
+
+    [SerializeField]
     private GameObject canvas = null;
 
     [SerializeField]
@@ -90,6 +93,10 @@ public class DialogueINK : MonoBehaviour
                 {
                     if (i == 0)
                     {
+                        if (inkJSONAsset == TrollEXC)
+                        {
+                            P1.gameObject.SetActive(false);
+                        }
                         button.GetComponent<Image>().sprite = Left;
                         button.transform.position = P1.position;
                         button.transform.SetParent(P1);
@@ -108,13 +115,17 @@ public class DialogueINK : MonoBehaviour
                 {
                     if (i == 0)
                     {
+                        if (inkJSONAsset == TrollEXC)
+                        {
+                            P1.gameObject.SetActive(false);
+                        }
                         button.GetComponent<Image>().sprite = Left;
                         button.transform.position = P1.position;
                         button.transform.SetParent(P1);
 
                         P2.gameObject.SetActive(false);
                     }
-
+                   
                 }
 
                 // Tell the button what to do when we press it
@@ -187,5 +198,10 @@ public class DialogueINK : MonoBehaviour
         
     }
 
+    public void SetStory(TextAsset inkStory)
+    {
+        inkJSONAsset = null;
+        inkJSONAsset = inkStory;
+    }
   
 }
