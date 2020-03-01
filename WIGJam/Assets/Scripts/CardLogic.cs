@@ -16,7 +16,8 @@ public class CardLogic : MonoBehaviour {
     [SerializeField] private TextAsset niceGuyBio = null;
     [SerializeField] private TextAsset[] actualNiceGuy = null;
     [SerializeField] private TextAsset actualNiceGuyBio = null;
-    [SerializeField] private TextAsset troll = null;
+    [SerializeField] private TextAsset[] troll = null;
+    [SerializeField] private TextAsset oneLiners = null;
     [SerializeField] private TextAsset trollBio = null;
     [SerializeField] TextAsset textChosen = null;
 
@@ -48,6 +49,7 @@ public class CardLogic : MonoBehaviour {
     {
         niceGuy,
         actualNiceGuy,
+        oneLiners,
         troll,
         douche,
         nothing
@@ -107,6 +109,13 @@ public class CardLogic : MonoBehaviour {
                     BioStory.Continue();
                     BioTextUI.text = BioStory.currentText;
                     break;
+                case Personality.oneLiners:
+                    ChosenBio = trollBio;
+                    BioStory = new Story(ChosenBio.text);
+                    BioStory.Continue();
+                    BioTextUI.text = BioStory.currentText;
+                    break;
+
             }
         }
 
@@ -128,18 +137,22 @@ public class CardLogic : MonoBehaviour {
                     DialogueCard = new Story(textChosen.text);
                     break;
                 case Personality.troll:
-                    textChosen = troll;
+                    textChosen = troll[UnityEngine.Random.Range(0, troll.Length)];
                     DialogueCard = new Story(textChosen.text);
                     break;
                 case Personality.douche:
                     textChosen = doucheStory[UnityEngine.Random.Range(0, doucheStory.Length)];
                     DialogueCard = new Story(textChosen.text);
                     break;
+                case Personality.oneLiners:
+                    textChosen = oneLiners;
+                    DialogueCard = new Story(textChosen.text);
+                    break;
             }
         }
     }
 
-        void PopulateCard()
+   public void PopulateCard()
         {
 
             ChooseProfilePic();
@@ -150,13 +163,23 @@ public class CardLogic : MonoBehaviour {
 
             if(ChosenBio == null)
             {
-            ChooseBio(personality);
+             ChooseBio(personality);
             }
 
         }
 
     void ChoosePersonality()
     {
+
+        int luck = 0;
+
+        luck = UnityEngine.Random.Range(0, 100);
+
+        if (true)
+        {
+
+        }
+
         Personality lastPersonalityChosen = Personality.nothing;
         personality = (Personality)UnityEngine.Random.Range(0, 4);
         lastPersonalityChosen = personality;
@@ -176,15 +199,13 @@ public class CardLogic : MonoBehaviour {
         NameStory.Continue();
         Age = UnityEngine.Random.Range(20, 38);
         Name = NameStory.currentText;
-        print(NameStory.currentText);
-
         NameAndAgeUI.text = Name + Age.ToString();
     }
 
     public void Like()
     {
         source.Play();
-        iNK.SetStory(textChosen);
+        iNK.SetStoryAndGetPersonality(textChosen, personality);
         iNK.StartStoryOnPress();
         print("Liked!");
     }
