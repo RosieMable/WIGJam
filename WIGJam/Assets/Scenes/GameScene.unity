@@ -327,12 +327,98 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &930380344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930380339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 930380345}
+          m_MethodName: StartPulse
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &930380345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930380339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b9a21ee3fa7ac64f80b47392d370219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1148106555 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7058976951013097463, guid: 9cf5453a0162eea46acad0938ad4342c,
     type: 3}
   m_PrefabInstance: {fileID: 7058976952150952140}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1261528299 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7058976952672131998, guid: 9cf5453a0162eea46acad0938ad4342c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7058976952150952140}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1261528301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261528299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b9a21ee3fa7ac64f80b47392d370219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1261528302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261528299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1261528301}
+          m_MethodName: StartPulse
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1280775496 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1280775496, guid: 9cf5453a0162eea46acad0938ad4342c,
@@ -680,6 +766,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5709005dcfbb4245b444767bc99c8ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1774406158 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7058976951798084786, guid: 9cf5453a0162eea46acad0938ad4342c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7058976952150952140}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1774406160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774406158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b9a21ee3fa7ac64f80b47392d370219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1774406161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774406158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1774406160}
+          m_MethodName: StartPulse
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1788714086 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1194509886860383186, guid: 9cf5453a0162eea46acad0938ad4342c,
@@ -805,6 +937,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7058976951496544330, guid: 9cf5453a0162eea46acad0938ad4342c,
+        type: 3}
+      propertyPath: troll.Array.size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058976951496544330, guid: 9cf5453a0162eea46acad0938ad4342c,
+        type: 3}
+      propertyPath: iNK
+      value: 
+      objectReference: {fileID: 778663635}
+    - target: {fileID: 7058976951496544330, guid: 9cf5453a0162eea46acad0938ad4342c,
+        type: 3}
+      propertyPath: troll.Array.data[10]
+      value: 
+      objectReference: {fileID: 4900000, guid: 1d25af07bc9f9c041912049b21e73462, type: 3}
+    - target: {fileID: 7058976951496544330, guid: 9cf5453a0162eea46acad0938ad4342c,
+        type: 3}
+      propertyPath: troll.Array.data[11]
+      value: 
+      objectReference: {fileID: 4900000, guid: 792ac3b87530de642a2757aa9570d1a6, type: 3}
+    - target: {fileID: 7058976951496544330, guid: 9cf5453a0162eea46acad0938ad4342c,
+        type: 3}
+      propertyPath: troll.Array.data[12]
+      value: 
+      objectReference: {fileID: 4900000, guid: dc08e8a11b52fed4296c6e0f46ecffdf, type: 3}
+    - target: {fileID: 7058976951496544330, guid: 9cf5453a0162eea46acad0938ad4342c,
+        type: 3}
+      propertyPath: troll.Array.data[13]
+      value: 
+      objectReference: {fileID: 4900000, guid: 0fbe7148c12a370419dc74f086c6650f, type: 3}
+    - target: {fileID: 1194509886860383186, guid: 9cf5453a0162eea46acad0938ad4342c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7058976951013097459, guid: 9cf5453a0162eea46acad0938ad4342c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -915,36 +1082,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2030386167}
-    - target: {fileID: 7058976951496544330, guid: 9cf5453a0162eea46acad0938ad4342c,
-        type: 3}
-      propertyPath: troll.Array.size
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 7058976951496544330, guid: 9cf5453a0162eea46acad0938ad4342c,
-        type: 3}
-      propertyPath: iNK
-      value: 
-      objectReference: {fileID: 778663635}
-    - target: {fileID: 7058976951496544330, guid: 9cf5453a0162eea46acad0938ad4342c,
-        type: 3}
-      propertyPath: troll.Array.data[10]
-      value: 
-      objectReference: {fileID: 4900000, guid: 1d25af07bc9f9c041912049b21e73462, type: 3}
-    - target: {fileID: 7058976951496544330, guid: 9cf5453a0162eea46acad0938ad4342c,
-        type: 3}
-      propertyPath: troll.Array.data[11]
-      value: 
-      objectReference: {fileID: 4900000, guid: 792ac3b87530de642a2757aa9570d1a6, type: 3}
-    - target: {fileID: 7058976951496544330, guid: 9cf5453a0162eea46acad0938ad4342c,
-        type: 3}
-      propertyPath: troll.Array.data[12]
-      value: 
-      objectReference: {fileID: 4900000, guid: dc08e8a11b52fed4296c6e0f46ecffdf, type: 3}
-    - target: {fileID: 7058976951496544330, guid: 9cf5453a0162eea46acad0938ad4342c,
-        type: 3}
-      propertyPath: troll.Array.data[13]
-      value: 
-      objectReference: {fileID: 4900000, guid: 0fbe7148c12a370419dc74f086c6650f, type: 3}
     - target: {fileID: 7058976951798084787, guid: 9cf5453a0162eea46acad0938ad4342c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -968,11 +1105,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 87
-      objectReference: {fileID: 0}
-    - target: {fileID: 1194509886860383186, guid: 9cf5453a0162eea46acad0938ad4342c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2808568054805050782, guid: 9cf5453a0162eea46acad0938ad4342c,
         type: 3}
