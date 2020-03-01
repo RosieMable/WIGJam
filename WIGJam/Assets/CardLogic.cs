@@ -5,17 +5,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class CardLogic : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class CardLogic : MonoBehaviour, IDragHandler
 {
     public TMP_Text tmp;
     public bool isMouseOver = false;
-    public Vector2 originalPosition;
+    public Vector3 originalPosition;
     public Canvas myCanvas;
+    [SerializeField] private Transform handPoint;
+    public Transform canvas;
 
     private void Start()
     {
         originalPosition = transform.position;
-        //RectTransformUtility.ScreenPointToLocalPointInRectangle(myCanvas.transform as RectTransform, myCanvas.transform.position, myCanvas.worldCamera, out originalPosition);
     }
 
     private void OnMouseOver()
@@ -29,11 +30,11 @@ public class CardLogic : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     }
     public void InduceRight()
     {
-        tmp.text = "You have swiped right";
+        print("You have swiped right");
     }
     public void InduceLeft()
     {
-        tmp.text = "You have swiped left";
+        print("You have swiped left");
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -44,5 +45,10 @@ public class CardLogic : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public void OnPointerExit(PointerEventData eventData)
     {
         isMouseOver = false;
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        throw new System.NotImplementedException();
     }
 }
