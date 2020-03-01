@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
 
     public int blockCount;
     public int niceGuy;
-    public int scum;
 
 
     public Text niceGuyUI, blockCountUI;
@@ -47,6 +46,7 @@ public class GameManager : MonoBehaviour
     {
         ToFindDate();
         blockCount = 0;
+        niceGuy = 0;
     }
 
 

@@ -48,10 +48,10 @@ public class CardLogic : MonoBehaviour {
     public enum Personality
     {
         niceGuy,
-        actualNiceGuy,
         oneLiners,
         troll,
         douche,
+        actualNiceGuy,
         nothing
     }
 
@@ -175,20 +175,17 @@ public class CardLogic : MonoBehaviour {
 
         luck = UnityEngine.Random.Range(0, 100);
 
-        if (true)
-        {
+        print(luck);
 
+        if (0 >= luck  && luck <= 95)
+        {
+            Personality lastPersonalityChosen = Personality.nothing;
+            personality = (Personality)UnityEngine.Random.Range(0, 3);
+            lastPersonalityChosen = personality;
         }
-
-        Personality lastPersonalityChosen = Personality.nothing;
-        personality = (Personality)UnityEngine.Random.Range(0, 4);
-        lastPersonalityChosen = personality;
-
-
-
-        if (personality == lastPersonalityChosen)
+        else if (luck > 95)
         {
-            personality = (Personality)UnityEngine.Random.Range(0, 4);
+            personality = Personality.actualNiceGuy;
         }
 
     }
