@@ -22,8 +22,19 @@ MonoBehaviour:
     jsonAssetPath: {fileID: 0}
     jsonAsset: {fileID: 4900000, guid: 72f6747638e05484f964fc538a94564c, type: 3}
   - compileAutomatically: 0
-    inkAsset: {fileID: 102900000, guid: fffcf31278955ab43867c8c048733b2b, type: 3}
+    inkAsset: {fileID: 102900000, guid: 3c212d90809c2f64fabe5c7f99ff42f5, type: 3}
     jsonAssetPath: {fileID: 0}
-    jsonAsset: {fileID: 4900000, guid: f3aa23f712e599346ab26ba486374cfe, type: 3}
+    jsonAsset: {fileID: 0}
   pendingCompilationStack: []
-  compilationStack: []
+  compilationStack:
+  - state: 1
+    inkFile:
+      compileAutomatically: 0
+      inkAsset: {fileID: 102900000, guid: 3c212d90809c2f64fabe5c7f99ff42f5, type: 3}
+      jsonAssetPath: {fileID: 0}
+      jsonAsset: {fileID: 0}
+    compiledJson: 
+    inkAbsoluteFilePath: C:/Users/u1831191/Github/WIGJam/WIGJam/Assets/PV_Inky_WGJ/RandomBiosInk.ink
+    jsonAbsoluteFilePath: Assets/PV_Inky_WGJ/RandomBiosInk.json
+    output: []
+    unhandledErrorOutput: []
