@@ -548,9 +548,10 @@ MonoBehaviour:
   ChatScreen: {fileID: 1972356893}
   blockCount: 0
   niceGuy: 0
-  scum: 0
   niceGuyUI: {fileID: 1280775496}
   blockCountUI: {fileID: 722124884}
+  GameUI: {fileID: 0}
+  VictoryUI: {fileID: 0}
 --- !u!82 &1701750067
 AudioSource:
   m_ObjectHideFlags: 0
@@ -838,6 +839,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7058976951496544330, guid: 9cf5453a0162eea46acad0938ad4342c,
+        type: 3}
+      propertyPath: iNK
+      value: 
+      objectReference: {fileID: 778663635}
     - target: {fileID: 7058976951013097459, guid: 9cf5453a0162eea46acad0938ad4342c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -948,16 +954,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2030386167}
-    - target: {fileID: 7058976951496544328, guid: 9cf5453a0162eea46acad0938ad4342c,
-        type: 3}
-      propertyPath: m_Name
-      value: Card
-      objectReference: {fileID: 0}
-    - target: {fileID: 7058976951496544330, guid: 9cf5453a0162eea46acad0938ad4342c,
-        type: 3}
-      propertyPath: iNK
-      value: 
-      objectReference: {fileID: 778663635}
     - target: {fileID: 7058976951798084787, guid: 9cf5453a0162eea46acad0938ad4342c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -982,6 +978,23 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: BlockUser
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808568054805050782, guid: 9cf5453a0162eea46acad0938ad4342c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 26.199997
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058976951496544328, guid: 9cf5453a0162eea46acad0938ad4342c,
+        type: 3}
+      propertyPath: m_Name
+      value: Card
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690355752468773698, guid: 9cf5453a0162eea46acad0938ad4342c,
+        type: 3}
+      propertyPath: m_Text
+      value: 'You did it!
+
+        It is a date, they might be the one!'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cf5453a0162eea46acad0938ad4342c, type: 3}

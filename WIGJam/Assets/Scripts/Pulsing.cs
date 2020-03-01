@@ -6,11 +6,14 @@ public class Pulsing : MonoBehaviour
 {
     private bool coroutineAllowed;
     RectTransform rect;
+
+    Vector3 originalScale;
     // Start is called before the first frame update
     void Start()
     {
         coroutineAllowed = true;
         rect = GetComponent<RectTransform>();
+        originalScale = new Vector3(rect.localScale.x, rect.localScale.y, rect.localScale.z);
     }
 
     // Update is called once per frame
@@ -46,5 +49,10 @@ public class Pulsing : MonoBehaviour
                 yield return new WaitForSeconds(0.015f);
             }
         coroutineAllowed = true;
+    }
+
+    private void OnDisable()
+    {
+        rect.localScale = originalScale;
     }
 }

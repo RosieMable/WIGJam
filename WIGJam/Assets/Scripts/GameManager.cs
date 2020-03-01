@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
 
     public Text niceGuyUI, blockCountUI;
 
-    private CardLogic card;
 
     public GameObject GameUI;
     public GameObject VictoryUI;

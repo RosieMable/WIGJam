@@ -41,6 +41,8 @@ public class DialogueINK : MonoBehaviour
 
     public CardLogic cardDate;
 
+    public GameObject leftButton, rightButton;
+
 
     //   void Awake () {
     //	// Remove the default message
@@ -64,8 +66,8 @@ public class DialogueINK : MonoBehaviour
     {
         RemoveChildren();
         manager.blockCount += 1;
-        cardDate.PopulateCard();
         manager.ToFindDate();
+        cardDate.PopulateCard();
     }
 
     // This is the main function called every time the story changes. It does a few things:
@@ -94,7 +96,7 @@ public class DialogueINK : MonoBehaviour
             for (int i = 0; i < story.currentChoices.Count; i++)
             {
                 Choice choice = story.currentChoices[i];
-                Button button = CreateChoiceView(choice.text.Trim());
+
 
                 if (story.currentChoices.Count > 1)
                 {
@@ -105,17 +107,27 @@ public class DialogueINK : MonoBehaviour
                         {
                             P1.gameObject.SetActive(false);
                         }
-                        button.GetComponent<Image>().sprite = Left;
+                        Button button = CreateChoiceView(leftButton, choice.text.Trim());
                         button.transform.position = P1.position;
                         button.transform.SetParent(P1);
                         P1.gameObject.SetActive(true);
+
+                        // Tell the button what to do when we press it
+                        button.onClick.AddListener(delegate {
+                            OnClickChoiceButton(choice);
+                        });
                     }
                     else if (i == 1)
                     {
-                        button.GetComponent<Image>().sprite = Right;
+                        Button button = CreateChoiceView(rightButton, choice.text.Trim());
                         button.transform.position = P2.position;
                         button.transform.SetParent(P2);
                         P2.gameObject.SetActive(true);
+
+                        // Tell the button what to do when we press it
+                        button.onClick.AddListener(delegate {
+                            OnClickChoiceButton(choice);
+                        });
                     }
 
                 }
@@ -127,19 +139,20 @@ public class DialogueINK : MonoBehaviour
                         {
                             P1.gameObject.SetActive(false);
                         }
-                        button.GetComponent<Image>().sprite = Left;
+                        Button button = CreateChoiceView(leftButton, choice.text.Trim());
                         button.transform.position = P1.position;
                         button.transform.SetParent(P1);
 
                         P2.gameObject.SetActive(false);
+
+                        // Tell the button what to do when we press it
+                        button.onClick.AddListener(delegate {
+                            OnClickChoiceButton(choice);
+                        });
                     }
                    
                 }
 
-                // Tell the button what to do when we press it
-                button.onClick.AddListener(delegate {
-                    OnClickChoiceButton(choice);
-                });
             }
         }
         // If we've read all the content and there's no choices, the story is finished!
@@ -150,8 +163,8 @@ public class DialogueINK : MonoBehaviour
             CenterPoint.gameObject.SetActive(false);
 
             //once it is done, then play ending
-            cardDate.PopulateCard();
             manager.ToFindDate();
+            cardDate.PopulateCard();
             AddToCount(currentPersonality);
 
 
@@ -182,11 +195,12 @@ public class DialogueINK : MonoBehaviour
     }
 
     // Creates a button showing the choice text
-    Button CreateChoiceView(string text)
+    Button CreateChoiceView(GameObject buttonPrefab, string text)
     {
         // Creates the button from a prefab
-        Button choice = Instantiate(buttonPrefab) as Button;
-        choice.transform.SetParent(canvas.transform, false);
+         GameObject newChoice = Instantiate(buttonPrefab);
+        Button choice = newChoice.GetComponent<Button>();
+        newChoice.transform.SetParent(canvas.transform, false);
 
         // Gets the text from the button prefab
         Text choiceText = choice.GetComponentInChildren<Text>();

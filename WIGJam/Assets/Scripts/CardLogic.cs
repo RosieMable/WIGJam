@@ -23,7 +23,7 @@ public class CardLogic : MonoBehaviour {
 
     AudioSource source;
 
-    [SerializeField] string Name, Bio, Gender;
+    [SerializeField] string Name, Bio;
     [SerializeField] int Age;
 
     [SerializeField] DialogueINK iNK;
@@ -44,6 +44,8 @@ public class CardLogic : MonoBehaviour {
 
     public Text NameAndAgeUI;
     public Text BioTextUI;
+
+    public int luck = 0;
 
     public enum Personality
     {
@@ -154,39 +156,43 @@ public class CardLogic : MonoBehaviour {
 
    public void PopulateCard()
         {
+            luck = 0;
 
-            ChooseProfilePic();
-            ChoosePersonality();
-            ChooseNameAndAge();
-            ChooseStoryAsset(personality);
-            ChooseBio(personality);
+            luck = UnityEngine.Random.Range(0, 100);
 
-            if(ChosenBio == null)
-            {
-             ChooseBio(personality);
-            }
+          ChooseProfilePic();
+         ChoosePersonality();
+        ChooseNameAndAge();
+        ChooseStoryAsset(personality);
+        ChooseBio(personality);
 
-        }
+    }
 
     void ChoosePersonality()
     {
-
-        int luck = 0;
-
-        luck = UnityEngine.Random.Range(0, 100);
-
-        print(luck);
-
-        if (0 >= luck  && luck <= 95)
+        if (luck > 0  && luck <= 30) //0 - 30
         {
-            Personality lastPersonalityChosen = Personality.nothing;
-            personality = (Personality)UnityEngine.Random.Range(0, 3);
-            lastPersonalityChosen = personality;
+            personality = Personality.oneLiners;
         }
-        else if (luck > 95)
+        else if (luck > 30 && luck <= 50) //31 - 50
+        {
+            personality = Personality.troll;
+        }
+        else if (luck > 50 && luck <= 70) // 51 - 70
+        {
+            personality = Personality.douche;
+
+        }
+        else if (luck > 70 && luck <= 95)// 71 - 95
+        {
+            personality = Personality.niceGuy;
+        }
+        else if (luck > 95) //96 - 100
         {
             personality = Personality.actualNiceGuy;
         }
+
+        print("Luck is: " + luck.ToString()  + " "+ "Personality is: " + personality);
 
     }
 

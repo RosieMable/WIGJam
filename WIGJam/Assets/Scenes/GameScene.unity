@@ -217,6 +217,18 @@ PrefabInstance:
       propertyPath: cardDate
       value: 
       objectReference: {fileID: 1765775494}
+    - target: {fileID: 9057448024458005550, guid: 6d9c669aad933ea41b0e43edc00b8f71,
+        type: 3}
+      propertyPath: leftButton
+      value: 
+      objectReference: {fileID: 5894543180375022085, guid: b0513f284f590154185f644e3e74a93c,
+        type: 3}
+    - target: {fileID: 9057448024458005550, guid: 6d9c669aad933ea41b0e43edc00b8f71,
+        type: 3}
+      propertyPath: rightButton
+      value: 
+      objectReference: {fileID: 3228833919531407500, guid: 4ed3c60022506a54e9a967d5258492db,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d9c669aad933ea41b0e43edc00b8f71, type: 3}
 --- !u!224 &625727980 stripped
@@ -944,6 +956,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7058976951496544330, guid: 9cf5453a0162eea46acad0938ad4342c,
         type: 3}
+      propertyPath: niceGuy.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058976951496544330, guid: 9cf5453a0162eea46acad0938ad4342c,
+        type: 3}
+      propertyPath: doucheStory.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058976951496544330, guid: 9cf5453a0162eea46acad0938ad4342c,
+        type: 3}
       propertyPath: iNK
       value: 
       objectReference: {fileID: 778663635}
@@ -967,6 +989,41 @@ PrefabInstance:
       propertyPath: troll.Array.data[13]
       value: 
       objectReference: {fileID: 4900000, guid: 0fbe7148c12a370419dc74f086c6650f, type: 3}
+    - target: {fileID: 7058976951496544330, guid: 9cf5453a0162eea46acad0938ad4342c,
+        type: 3}
+      propertyPath: niceGuy.Array.data[1]
+      value: 
+      objectReference: {fileID: 4900000, guid: a49d94cd33f724c4ca56a0181bdf4e06, type: 3}
+    - target: {fileID: 7058976951496544330, guid: 9cf5453a0162eea46acad0938ad4342c,
+        type: 3}
+      propertyPath: niceGuy.Array.data[2]
+      value: 
+      objectReference: {fileID: 4900000, guid: 8ff6d274a77e8494fa7abadcffbc99a1, type: 3}
+    - target: {fileID: 7058976951496544330, guid: 9cf5453a0162eea46acad0938ad4342c,
+        type: 3}
+      propertyPath: niceGuy.Array.data[3]
+      value: 
+      objectReference: {fileID: 4900000, guid: 871b3b2ee09eeaa44b0e20dc5bdea126, type: 3}
+    - target: {fileID: 7058976951496544330, guid: 9cf5453a0162eea46acad0938ad4342c,
+        type: 3}
+      propertyPath: doucheBio
+      value: 
+      objectReference: {fileID: 4900000, guid: f45781690aad87f4c8134a063605eb7e, type: 3}
+    - target: {fileID: 7058976951496544330, guid: 9cf5453a0162eea46acad0938ad4342c,
+        type: 3}
+      propertyPath: doucheStory.Array.data[1]
+      value: 
+      objectReference: {fileID: 4900000, guid: 69907b4e11fc4b2418d91e522ef9f65b, type: 3}
+    - target: {fileID: 7058976951496544330, guid: 9cf5453a0162eea46acad0938ad4342c,
+        type: 3}
+      propertyPath: doucheStory.Array.data[2]
+      value: 
+      objectReference: {fileID: 4900000, guid: 97acffb498d2d1b428b970b7c28c7842, type: 3}
+    - target: {fileID: 7058976951496544330, guid: 9cf5453a0162eea46acad0938ad4342c,
+        type: 3}
+      propertyPath: doucheStory.Array.data[3]
+      value: 
+      objectReference: {fileID: 4900000, guid: 3d31288fd859c31489ad5232398459ba, type: 3}
     - target: {fileID: 1194509886860383186, guid: 9cf5453a0162eea46acad0938ad4342c,
         type: 3}
       propertyPath: m_IsActive
@@ -1109,7 +1166,7 @@ PrefabInstance:
     - target: {fileID: 2808568054805050782, guid: 9cf5453a0162eea46acad0938ad4342c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 26.199982
+      value: 26.199951
       objectReference: {fileID: 0}
     - target: {fileID: 7775956218198239722, guid: 9cf5453a0162eea46acad0938ad4342c,
         type: 3}
@@ -1140,6 +1197,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443838176067311408, guid: 9cf5453a0162eea46acad0938ad4342c,
+        type: 3}
+      propertyPath: m_Text
+      value: "Bottom of the Barrel puts a spotlight on the harassment that women face
+        on dating apps. \nThank you for playing!"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cf5453a0162eea46acad0938ad4342c, type: 3}
