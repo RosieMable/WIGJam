@@ -91,6 +91,8 @@ public class DialogueINK : MonoBehaviour
 
                 if (story.currentChoices.Count > 1)
                 {
+                    CenterPoint.gameObject.SetActive(true);
+
                     if (i == 0)
                     {
                         if (inkJSONAsset == TrollEXC)
@@ -139,6 +141,7 @@ public class DialogueINK : MonoBehaviour
         {
             P1.gameObject.SetActive(false);
             P2.gameObject.SetActive(false);
+            CenterPoint.gameObject.SetActive(false);
 
             //once it is done, then play ending
             manager.ToFindDate();
