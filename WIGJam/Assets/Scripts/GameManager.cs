@@ -9,10 +9,12 @@ public class GameManager : MonoBehaviour
 
     public int blockCount;
 
-
+    AudioSource audio;
     private void Start()
     {
         InitGame();
+
+        audio = FindObjectOfType<AudioSource>();
     }
 
     public void ToChatService()
@@ -32,5 +34,7 @@ public class GameManager : MonoBehaviour
         ToFindDate();
         blockCount = 0;
     }
+
+
 
 }
