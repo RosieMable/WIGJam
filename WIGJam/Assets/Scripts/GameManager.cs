@@ -16,18 +16,31 @@ public class GameManager : MonoBehaviour
 
     private CardLogic card;
 
+    public GameObject GameUI;
+    public GameObject VictoryUI;
+
     AudioSource audio;
     private void Start()
     {
         InitGame();
 
-        audio = FindObjectOfType<AudioSource>();
     }
 
     private void Update()
     {
         niceGuyUI.text = "Dates: " + niceGuy.ToString();
         blockCountUI.text = "Duds: " + blockCount.ToString();
+
+        CompleteGame();
+    }
+
+    void CompleteGame()
+    {
+        if (niceGuy > 0)
+        {
+            GameUI.SetActive(false);
+            VictoryUI.SetActive(true);
+        }
     }
 
     public void ToChatService()
@@ -47,6 +60,10 @@ public class GameManager : MonoBehaviour
         ToFindDate();
         blockCount = 0;
         niceGuy = 0;
+        audio = FindObjectOfType<AudioSource>();
+        GameUI.SetActive(true);
+        VictoryUI.SetActive(false);
+
     }
 
 
