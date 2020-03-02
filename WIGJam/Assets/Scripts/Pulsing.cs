@@ -54,5 +54,6 @@ public class Pulsing : MonoBehaviour
     private void OnDisable()
     {
         rect.localScale = originalScale;
+        coroutineAllowed = true;
     }
 }

@@ -1,9 +1,0 @@
-{"dialogues":[{"id":"1",
-"text":"Hi!",
-"responseIds":["P1","P2"]},
-{"id":"2",
-"text":"Hi!",
-"responseIds":["P1","P2"]},
-{"id":"3",
-"text":"Hi!",
-"responseIds":["P1","P2"]}],"personality":1}

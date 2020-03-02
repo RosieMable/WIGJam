@@ -29,7 +29,7 @@ public class CardLogic : MonoBehaviour {
     [SerializeField] DialogueINK iNK;
 
     public Story NameStory;
-    public TextAsset textAssetNames;
+    public TextAsset[] textAssetNames;
 
     public Story BioStory;
     public TextAsset ChosenBio;
@@ -192,13 +192,13 @@ public class CardLogic : MonoBehaviour {
             personality = Personality.actualNiceGuy;
         }
 
-        print("Luck is: " + luck.ToString()  + " "+ "Personality is: " + personality);
+      //  print("Luck is: " + luck.ToString()  + " "+ "Personality is: " + personality);
 
     }
 
     void ChooseNameAndAge()
     {
-        NameStory = new Story(textAssetNames.text); 
+        NameStory = new Story(textAssetNames[UnityEngine.Random.Range(0, textAssetNames.Length)].text); 
         NameStory.Continue();
         Age = UnityEngine.Random.Range(20, 38);
         Name = NameStory.currentText;
@@ -210,7 +210,7 @@ public class CardLogic : MonoBehaviour {
         source.Play();
         iNK.SetStoryAndGetPersonality(textChosen, personality);
         iNK.StartStoryOnPress();
-        print("Liked!");
+       // print("Liked!");
     }
 
     public void Dislike()
